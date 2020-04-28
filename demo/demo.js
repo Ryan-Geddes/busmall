@@ -72,5 +72,4 @@ function handleClick(event) {
 
 divEl.addEventListener('click', handleClick);
 
-
 imageGenerator();
