@@ -10,22 +10,58 @@
 
 <header>
 
+    <h1>Busmall</h1>
 
 </header>
 
 <body>
 
-        <h1>Busmall</h1>
+    <form id="userform">
+        
+        <fieldset>
+            <legend>Test Settings</legend>
+            <label>Rounds</label>
+            <input id="rounds" type = "text" placeholder="25" required="required">
+            
+            <label>Photos Displayed per Round</label>
+            <input id="photonumber" type = "number" placeholder="3" required="required">
+            
+            <button value="submit">SUBMIT</button>
+        </fieldset>
+        
+    </form>
+        <div id="results">
+            <ul id="list">
+
+            </ul>
+        </div>
+        
         <div id="container">
             <img id="image-1" title="" alt="" src=""/>
             <img id="image-2" title="" alt="" src=""/>
             <img id="image-3" title="" alt="" src=""/>
         </div>
-<script src="js/app.js"></script>
-</body>
-
-<footer>
-
-
-</footer>
-</html>
+        
+        <div id="content">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid nisi minima expedita? Possimus nam eum tenetur dignissimos mollitia, aliquam itaque beatae nemo officiis, maxime totam omnis necessitatibus a eligendi quasi! Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur deleniti distinctio, modi autem reprehenderit architecto sapiente ut ea blanditiis aliquid voluptatibus quos magnam similique sint at officiis neque omnis quia!
+        </div>
+        
+        <canvas id="myChart"> </canvas>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+        <script src="js/app.js"></script>
+    </body>
+    
+    <footer>
+        
+        
+    </footer>
+    </html>
+                <!-- <table id="table">
+                    <thead id="tablehead">
+                    </thead>
+                    <tbody id = "tablebody">
+                    </tbody>
+                </table> -->
+<!-- put the canvas element where you want it to appear in html, then link to the below script near your js.app -->
+<!-- <canvas id="myChart"> </canvas>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script> -->
