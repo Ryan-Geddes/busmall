@@ -51,32 +51,28 @@ function Item(name, src, clicked=0, displayed=0){
     itemsArr.push(this);
 }
 
-//create items (moved to loadLocalStoarge function)
-
 // randomizer function
 function randomizer(max){
     return Math.floor(Math.random() * max);
 };
 
-// save to local storage.  Invoke this function within the event handler once the rounds variable reaches zero.
-function saveLocalStorage() {
+//save to local storage
+function saveLocalStorage(){
     var convertedItems = JSON.stringify(itemsArr);
     localStorage.setItem('items', convertedItems);
 }
 
-//check to see if anything's in local storage.  If data is found, parse from JSON back into JS object using a for loop.
-//if nothing is found, initialize my itemsArr with our constructors 
-//after either option above, run the image generator function.
-//invoke this function globally on line 305.
-
-function loadLocalStorage() {
-    if (localStorage.getItem('items')){
+function loadLocalStorage(){
+    //check to see if there's stuff in local storage.  if there is, then we grab it and use that data
+    // if local storage is empty, proceed as if its the first time
+    if(localStorage.getItem('items')){
         var localStorageItems = JSON.parse(localStorage.getItem('items'));
         for(var i = 0; i < localStorageItems.length; i++){
-                new Item(localStorageItems[i].name, localStorageItems[i].src, localStorageItems[i].clicked, localStorageItems[i].displayed)
+            new Item(localStorageItems[i].name, localStorageItems[i].src,localStorageItems[i].clicked, localStorageItems[i].displayed)
         }
     }
     else{
+        //create items:
 
         new Item('bag',  './assets/bag.jpg');
         new Item('banana',  './assets/banana.jpg');
@@ -102,6 +98,12 @@ function loadLocalStorage() {
     imageGenerator();
 }
 
+//// JSON.stringify standardizes different formats of objects from diff programming languages (JS object, python dictionary, etc.) and returns a format the setItem method can read
+//   var convertedObject = JSON.stringify(planet);
+  
+//   console.log(convertedObject);
+  
+//   localStorage.setItem('starWarsPlanets', 'convertedObject');
 
 
 //once clicks are exhausted function
@@ -112,7 +114,6 @@ function stopClicking() {
 }
 
  var selectedArr = [];
-
 //image generator function
 function imageGenerator(){
 
@@ -196,8 +197,9 @@ function handleClick(event) {
 
 divEl.addEventListener('click', handleClick);
 
-// imageGenerator();
-//replaced with loadlocal storage function on line 310
+//imageGenerator();
+//replaced with loadloacal storage function on line 304
+
 
 // create a ul to display results
 
@@ -328,3 +330,22 @@ loadLocalStorage();
 //   }
 // }
 // randomfruits();
+
+
+
+////local storage demo:
+// var planet = {
+//     "name": "Yavin IV",
+//     "fart": "yes",
+//     "variabl": "3",
+//     "array": "33",
+  
+//   }
+//   // JSON.stringify standardizes different formats of objects from diff programming languages (JS object, python dictionary, etc.) and returns a format the setItem method can read
+//   var convertedObject = JSON.stringify(planet);
+  
+//   console.log(convertedObject);
+  
+//   localStorage.setItem('starWarsPlanets', 'convertedObject');
+  
+  
